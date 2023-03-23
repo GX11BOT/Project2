@@ -42,3 +42,37 @@ def add_student :
                 conn.commit()
                 conn.close()
                 t1.insert(END,"ADDED SUCCESSFULLY\n")
+
+def view_student():
+    conn=connection()
+    cur=conn.cursor()
+    cur.execute("select * from STUDENTS")
+    data=cur.fetchall()
+    conn.close()
+    for i in data:
+        t1.insert(END,str(i)+"\n")
+
+
+def delete_student():
+    ret=verifier()
+    if ret==0:
+        conn=connection()
+        cur=conn.cursor()
+        cur.execute("DELETE FROM STUDENTS WHERE ROLL_NO=?",(int(roll_no.get()),))
+        conn.commit()
+        conn.close()
+        t1.insert(END,"SUCCESSFULLY DELETED THE USER\n")
+
+def update_student():
+    ret=verifier()
+    if ret==0:
+        conn=connection()
+        cur=conn.cursor()
+        cur.execute("UPDATE STUDENTS SET NAME=?,ROLL_NO=?,BRANCH=?,PHONE_NO=?,FATHER=?,ADDRESS=? where ROLL_NO=?",(student_name.get(),int(roll_no.get()),branch.get(),int(phone.get()),father.get(),address.get(),int(roll_no.get())))
+        conn.commit()
+        conn.close()
+        t1.insert(END,"UPDATED SUCCESSFULLY\n")
+
+
+def clse():
+    sys.exit() 
