@@ -76,3 +76,22 @@ def update_student():
 
 def clse():
     sys.exit() 
+
+b1=Button(root,text="ADD STUDENT",command=add_student,width=40)
+    b1.grid(row=11,column=0)
+
+    b2=Button(root,text="VIEW ALL STUDENTS",command=view_student,width=40)
+    b2.grid(row=12,column=0)
+
+    b3=Button(root,text="DELETE STUDENT",command=delete_student,width=40)
+    b3.grid(row=13,column=0)
+
+    b4=Button(root,text="UPDATE INFO",command=update_student,width=40)
+    b4.grid(row=14,column=0)
+
+    b5=Button(root,text="CLOSE",command=clse,width=40)
+    b5.grid(row=15,column=0)
+
+
+    
+    root.mainloop()
